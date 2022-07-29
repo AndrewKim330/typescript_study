@@ -85,4 +85,35 @@ const playerMaker2 = (name: string): Player => {
 const p4 = playerMaker2('Choi');
 p4.age = 18;
 
+// 220729
+
+type Player11 = {
+    readonly name: string;
+    age?: number;
+};
+
+const playerMaker3 = (name: string): Player11 => {
+    return {
+        name,
+    };
+};
+
+const p5 = playerMaker3('kim');
+// p5.name = 'lee' -> expected to error
+
+const arr11: readonly number[] = [1, 2, 3];
+
+// arr11.push(3) -> expected to error
+
+const p6: [string, number, boolean] = ['kim', 0, true];
+// p6[0] = 0; -> expected to error
+p6[0] = 'Lee';
+const p7: readonly [string, number, boolean] = ['kim', 0, true];
+// p7[0] = "Lee"; -> expected to error
+
+const aa: any[] = [1, 2, 3, 4];
+const bb: any = true;
+
+aa + bb; // ???
+
 //
