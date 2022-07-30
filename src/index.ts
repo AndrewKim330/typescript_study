@@ -116,4 +116,33 @@ const bb: any = true;
 
 aa + bb; // ???
 
+// 220730
+
+let aaaa: unknown;
+
+if (typeof aaaa === 'number') {
+    let a123 = aaaa + 1;
+}
+
+// aaaa.slice(1) -> expected to error
+
+if (typeof aaaa === 'string') {
+    let a123 = aaaa.slice(1);
+}
+
+const sdf3 = (): never => {
+    // return "X" -> expected to error
+    throw new Error('sss');
+};
+
+const aaa33 = (name: string | number) => {
+    if (typeof name === 'string') {
+        name; // expected to string type
+    } else if (typeof name === 'number') {
+        name; // expected to number type
+    } else {
+        name; // expected to 'never' type. This sequence should not be executed if parameter inserts proper type
+    }
+};
+
 //
