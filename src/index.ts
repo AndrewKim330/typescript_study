@@ -1,4 +1,4 @@
-import { PassThrough } from 'stream';
+console.log('Hello Typescript!');
 
 // 220726
 const good = {
@@ -143,6 +143,14 @@ const aaa33 = (name: string | number) => {
     } else {
         name; // expected to 'never' type. This sequence should not be executed if parameter inserts proper type
     }
+};
+
+// 220731
+
+type Add = (a: number, b: number) => number;
+
+const add: Add = (a, b) => {
+    return a + b;
 };
 
 //
