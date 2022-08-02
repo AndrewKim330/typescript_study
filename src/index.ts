@@ -206,4 +206,37 @@ const add3: Add3 = (a, b, c?: number) => {
     }
 };
 
-//
+// 220802
+
+type SuperPrint = {
+    (arr: number[]): void;
+    (arr: boolean[]): void;
+    (arr: string[]): void;
+};
+
+const superPrint: SuperPrint = (arr) => {
+    arr.forEach((i) => {
+        console.log(i);
+    });
+};
+
+superPrint([1, 2, 3, 4]);
+superPrint([true]);
+superPrint(['a', 'b', 'c']);
+// superPrint([333, true, "a", "b", "c"]) -> expected to error.
+
+type SuperPrint2 = {
+    // <TypePlaceholder>(arr: TypePlaceholder[]):void
+    <T>(arr: T[]): void;
+};
+
+const superPrint2: SuperPrint2 = (arr) => {
+    arr.forEach((i) => {
+        console.log(i);
+    });
+};
+
+superPrint2([1, 2, 3, 4]);
+superPrint2([true]);
+superPrint2(['a', 'b', 'c']);
+superPrint2([333, true, 'a', 'b', 'c']);
