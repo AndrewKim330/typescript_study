@@ -240,3 +240,19 @@ superPrint2([1, 2, 3, 4]);
 superPrint2([true]);
 superPrint2(['a', 'b', 'c']);
 superPrint2([333, true, 'a', 'b', 'c']);
+
+// 220803
+
+type SuperPrint3 = {
+    <T, M>(arr: T[], b: M): void;
+};
+
+const superPrint3: SuperPrint3 = (arr) => {
+    arr.forEach((i) => {
+        console.log(i);
+    });
+};
+
+superPrint3([1, 2, 3], 'X');
+
+//
