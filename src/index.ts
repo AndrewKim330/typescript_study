@@ -255,4 +255,51 @@ const superPrint3: SuperPrint3 = (arr) => {
 
 superPrint3([1, 2, 3], 'X');
 
+// 220804
+
+const superPrint4 = <T>(a: T[]) => {
+    return a[0];
+};
+
+superPrint4([1, 2, true, 'X']);
+
+type Player2<E> = {
+    name: String;
+    extraInfo: E;
+};
+
+const kimPlayer: Player2<{ FavFood: String }> = {
+    name: 'kimkim',
+    extraInfo: { FavFood: 'Sio' },
+};
+
+type kimPlayer22 = Player2<{ FavFood: String }>;
+
+const kimPlayer2: kimPlayer22 = {
+    name: 'kimkim',
+    extraInfo: { FavFood: 'Sio' },
+};
+
+type extra = { FavFood: String };
+
+type kimPlayer33 = Player2<extra>;
+
+const kimPlayer3: kimPlayer33 = {
+    name: 'kimkim',
+    extraInfo: { FavFood: 'Sio' },
+};
+
+const leePlayer: Player2<null> = {
+    name: 'lee',
+    extraInfo: null,
+};
+
+const printAllNumber = (arr: number[]) => {
+    console.log(arr);
+};
+
+const printAllNumber2 = (arr: Array<number>) => {
+    console.log(arr);
+};
+
 //
