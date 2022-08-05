@@ -302,4 +302,74 @@ const printAllNumber2 = (arr: Array<number>) => {
     console.log(arr);
 };
 
+// 220805
+
+class Player33 {
+    constructor(
+        private firstName: string,
+        private lastName: string,
+        public nickNmae: string
+    ) {}
+}
+
+const player333 = new Player33('ruben', 'Kim', 'ruben');
+
+abstract class User {
+    constructor(
+        private firstName: string,
+        private lastName: string,
+        public nickNmae: string
+    ) {}
+    getFullName() {
+        return `${this.firstName} ${this.lastName}`;
+    }
+}
+
+// const playerError = new User -> expected to error
+
+class Player44 extends User {}
+
+abstract class User2 {
+    constructor(
+        private firstName: string,
+        private lastName: string,
+        private nickName: string
+    ) {}
+    abstract getNickName(): void;
+
+    getFullName() {
+        return `${this.firstName} ${this.lastName}`;
+    }
+}
+
+class Player55 extends User2 {
+    getNickName(): void {
+        // console.log(this.nickName) -> exptected to error
+    }
+}
+
+abstract class User3 {
+    constructor(
+        private firstName: string,
+        private lastName: string,
+        protected nickName: string
+    ) {}
+    abstract getNickName(): void;
+
+    getFullName() {
+        return `${this.firstName} ${this.lastName}`;
+    }
+}
+
+class Player66 extends User3 {
+    getNickName(): void {
+        console.log(this.nickName);
+    }
+}
+
+const good111 = new Player66('aaa', 'bbb', 'ccc');
+
+good111.getFullName();
+// good111.nickName -> exptected to error
+
 //
