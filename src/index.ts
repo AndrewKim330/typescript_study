@@ -372,4 +372,37 @@ const good111 = new Player66('aaa', 'bbb', 'ccc');
 good111.getFullName();
 // good111.nickName -> exptected to error
 
+// 220806
+
+type Words = {
+    [key: string]: string;
+};
+
+class Dict {
+    private words: Words;
+    constructor() {
+        this.words = {};
+    }
+    add(word: Word) {
+        if (this.words[word.term] === undefined) {
+            this.words[word.term] = word.def;
+        }
+    }
+    def(term: string) {
+        return this.words[term];
+    }
+    // TBD: make CRUD methods
+}
+
+class Word {
+    constructor(public term: string, public def: string) {}
+}
+
+const parapluie = new Word('parapluie', 'umbrella');
+
+const dict = new Dict();
+
+dict.add(parapluie);
+dict.def('parapluie');
+
 //
