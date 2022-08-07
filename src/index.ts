@@ -405,4 +405,90 @@ const dict = new Dict();
 dict.add(parapluie);
 dict.def('parapluie');
 
+// 220807
+
+class Word2 {
+    constructor(public readonly term: string, public readonly def: string) {}
+}
+
+const parapluie2 = new Word2('parapluie', 'umbrella');
+
+// parapluie2.def = 'sss' -> expected to error
+
+type Player1234 = {
+    nickName: string;
+    healthBar: number;
+};
+
+const ggg: Player1234 = {
+    nickName: 'ggg',
+    healthBar: 10,
+};
+
+type Food = String;
+const croissant: Food = "C'est bon";
+
+type Team = 'red' | 'blue' | 'yellow';
+type Health = 1 | 5 | 10;
+
+type Player467 = {
+    nickName: string;
+    team: Team;
+    health: Health;
+};
+
+const sss: Player467 = {
+    nickName: 'sss',
+    team: 'blue',
+    //team:"pink", -> expected to error
+    health: 5,
+    // health: 7 -> expected to error
+};
+
+interface User77 {
+    name: string;
+}
+
+// interface User77 = {} -> expected to error
+
+interface Player11356 extends User77 {
+    sports: string;
+}
+
+const qqq: Player11356 = {
+    name: 'qqq',
+    sports: 'tennis',
+};
+
+type User00 = {
+    name: string;
+};
+
+type Player111111 = User00 & {
+    sports: string;
+};
+
+const qqq1: Player111111 = {
+    name: 'qqq1',
+    sports: 'tennis',
+};
+
+interface User1111 {
+    name: string;
+}
+
+interface User1111 {
+    age: number;
+}
+
+interface User1111 {
+    sports: string;
+}
+
+const zzz1: User1111 = {
+    name: 'zzz1',
+    age: 23,
+    sports: 'tennis',
+};
+
 //
