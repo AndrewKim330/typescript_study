@@ -491,4 +491,93 @@ const zzz1: User1111 = {
     sports: 'tennis',
 };
 
+// 220808
+
+abstract class User12345 {
+    constructor(protected firstName: string, protected lastName: string) {}
+    abstract sayHi(name: string): string;
+    abstract fullName(): string;
+}
+// new User12345() -> expected to error
+
+class Player11235 extends User12345 {
+    fullName(): string {
+        return `${this.firstName} ${this.lastName}`;
+    }
+    sayHi(name: string): string {
+        return `Hello ${name}. My name is ${this.fullName}.`;
+    }
+}
+
+interface User123456 {
+    firstName: string;
+    lastName: string;
+    sayHi(name: string): string;
+    fullName(): string;
+}
+
+class Player222222 implements User123456 {
+    constructor(
+        // private firstName:string, -> expected to error
+        // private lastName:string -> expected to error
+        public firstName: string,
+        public lastName: string
+    ) {}
+    fullName(): string {
+        return `${this.firstName} ${this.lastName}`;
+    }
+    sayHi(name: string): string {
+        return `Hello ${name}. My name is ${this.fullName}.`;
+    }
+}
+
+interface Human {
+    health: number;
+}
+
+class Player22222 implements User123456, Human {
+    constructor(
+        // private firstName:string, -> expected to error
+        // private lastName:string -> expected to error
+        public firstName: string,
+        public lastName: string,
+        public health: number
+    ) {}
+
+    fullName(): string {
+        return `${this.firstName} ${this.lastName}`;
+    }
+    sayHi(name: string): string {
+        return `Hello ${name}. My name is ${this.fullName}.`;
+    }
+}
+
+const gg33 = (user: User123456) => {
+    return 'hi';
+};
+
+gg33({
+    firstName: 'gg',
+    lastName: '33',
+    sayHi: (name) => {
+        return 'sss';
+    },
+    fullName: () => {
+        return 'xxx';
+    },
+});
+
+const gg333 = (user: User123456): User123456 => {
+    return {
+        firstName: 'gg',
+        lastName: '33',
+        sayHi: (name) => {
+            return 'sss';
+        },
+        fullName: () => {
+            return 'xxx';
+        },
+    };
+};
+
 //
