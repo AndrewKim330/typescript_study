@@ -1,3 +1,6 @@
+import { type } from 'os';
+import { getEffectiveConstraintOfTypeParameter } from 'typescript';
+
 console.log('Hello Typescript!');
 
 // 220726
@@ -580,4 +583,67 @@ const gg333 = (user: User123456): User123456 => {
     };
 };
 
-//
+// 220809
+
+type Player1563 = string;
+
+type Player15631 = '1' | '2';
+
+type Player11222 = {
+    name: string;
+};
+
+const player11222: Player11222 = {
+    name: '11222',
+};
+
+interface Player112221 {
+    name: string;
+}
+
+const player112221: Player112221 = {
+    name: '11222',
+};
+
+type Player11222E = Player11222 & {
+    lastName: string;
+};
+
+const player11222E: Player11222E = {
+    name: '11222',
+    lastName: '11222E',
+};
+
+interface Player112221E extends Player112221 {
+    lastName: string;
+}
+
+const player112221E: Player112221E = {
+    name: '112221',
+    lastName: '112221E',
+};
+
+interface Player112221A {
+    name: string;
+}
+
+interface Player112221A {
+    firstName: string;
+}
+
+const player221: Player112221A = {
+    name: 'aaa',
+    firstName: 'zzz',
+};
+
+type PlayerAA = {
+    firstName: string;
+};
+
+interface PlayerAAA {
+    firstName: string;
+}
+
+class User1111 implements PlayerAA {
+    constructor(public firstName: string) {}
+}
