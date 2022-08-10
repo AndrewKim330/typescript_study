@@ -644,6 +644,39 @@ interface PlayerAAA {
     firstName: string;
 }
 
-class User1111 implements PlayerAA {
+class User34566 implements PlayerAA {
     constructor(public firstName: string) {}
 }
+
+// 220810
+
+interface StorageNew<T> {
+    [key: string]: T;
+}
+
+class LocalStorage<T> {
+    private storage: StorageNew<T> = {};
+
+    set(key: string, value: T) {
+        this.storage[key] = value;
+    }
+    remove(key: string) {
+        delete this.storage[key];
+    }
+    get(key: string): T {
+        return this.storage[key];
+    }
+    clear() {
+        this.storage = {};
+    }
+}
+
+const stringStorage = new LocalStorage<string>();
+stringStorage.get('good');
+stringStorage.set('hello', 'ggg');
+
+const booleanStorage = new LocalStorage<boolean>();
+booleanStorage.get('ggg');
+booleanStorage.set('ggg', true);
+
+//
