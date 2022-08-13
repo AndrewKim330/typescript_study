@@ -1,7 +1,6 @@
 // 220813
 
-import { init } from 'myPackage'; // expected error when no d.ts file
-import { exit } from 'process';
+import { init, exit } from 'myPackage'; // expected error when no d.ts file
 
 init({
     urls: 'localhost',
